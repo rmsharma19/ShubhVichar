@@ -115,6 +115,45 @@
             color: var(--accent);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(214, 40, 40, 0.2);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(214, 40, 40, 0.4);
+            background: var(--accent);
+        }
+
+        .social-links a svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
         .donate-btn {
             background: var(--primary);
             color: white;
@@ -576,7 +615,7 @@
             width: 50px;
             height: 50px;
             object-fit: contain;
-            
+            filter: brightness(0) invert(1);
         }
 
         .footer-about h3 {
@@ -720,6 +759,21 @@
             .nav-links,
             .donate-btn {
                 display: none;
+            }
+
+            .social-links {
+                gap: 0.7rem;
+            }
+
+            .social-links a {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+
+            .social-links a svg {
+                width: 16px;
+                height: 16px;
             }
 
             .logo-text {
@@ -1071,10 +1125,29 @@
                 <li><a href="#values">Values</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#donate" class="donate-btn">Support Us</a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                ☰
-            </button>
+            <div class="nav-right">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/r/1JWoZ9ajCx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+                <a href="#donate" class="donate-btn">Support Us</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    ☰
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1248,7 +1321,7 @@
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="mailto:info@shubhvichar.org">info@shubhvichar.org</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#11787f777e5162796473796778727970633f7e6376"><span class="__cf_email__" data-cfemail="472e29212807342f32252f312e242f263569283520">[email&#160;protected]</span></a></li>
                     <li><a href="tel:+911234567890">+91 12345 67890</a></li>
                     <li><a href="#location">Find Us</a></li>
                 </ul>
@@ -1259,7 +1332,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1361,14 +1434,3 @@
                         }, index * 100);
                     });
                     statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-    </script>
-</body>
-</html>
