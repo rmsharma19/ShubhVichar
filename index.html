@@ -171,6 +171,76 @@
             background: var(--primary-dark);
         }
 
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--light);
+            box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 5rem 2rem 2rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(214, 40, 40, 0.1);
+            display: block;
+        }
+
+        .mobile-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .mobile-donate-btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -223,176 +293,129 @@
             color: white;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .hero-text .tagline {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-            font-style: italic;
+        .hero-text .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: -1;
+            transform: skew(-12deg);
         }
 
         .hero-text p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 2.5rem;
+            line-height: 1.8;
             font-weight: 300;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-buttons {
+        .hero-cta {
             display: flex;
             gap: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+            flex-wrap: wrap;
         }
 
-        .btn-primary, .btn-secondary {
+        .cta-btn {
             padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.05rem;
             transition: all 0.3s ease;
-            display: inline-block;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .btn-primary {
+        .cta-primary {
             background: white;
             color: var(--primary);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-primary:hover {
+        .cta-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .btn-secondary {
+        .cta-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .cta-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
         }
 
         .hero-image {
             position: relative;
-            animation: fadeIn 1s ease-out 0.8s both;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .image-card {
-            background: white;
+        .hero-image img {
+            width: 100%;
+            height: auto;
             border-radius: 20px;
-            padding: 2rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease;
+            animation: floatImage 3s ease-in-out infinite;
         }
 
-        .image-card:hover {
-            transform: rotate(0deg);
-        }
-
-        .logo-showcase {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .logo-showcase img {
-            width: 250px;
-            height: 250px;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
-        }
-
-        .logo-showcase-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 900;
-            text-align: center;
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         /* Stats Section */
         .stats {
-            background: var(--light);
+            background: var(--dark);
+            color: white;
             padding: 4rem 5%;
-            margin-top: -50px;
-            position: relative;
-            z-index: 2;
         }
 
         .stats-container {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out both;
-            border-top: 4px solid var(--primary);
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-        .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        .stat-item {
+            padding: 1.5rem;
         }
 
         .stat-number {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--accent);
+            display: block;
             margin-bottom: 0.5rem;
-            line-height: 1;
         }
 
         .stat-label {
             font-size: 1.1rem;
-            color: var(--dark);
-            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
         }
 
         /* Mission Section */
@@ -408,54 +431,43 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: var(--primary);
             text-align: center;
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: var(--dark);
-            opacity: 0.7;
+            color: #666;
             margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 300;
         }
 
         .mission-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            margin-top: 3rem;
         }
 
         .mission-card {
             background: var(--light);
-            padding: 3rem 2rem;
+            padding: 2.5rem;
             border-radius: 20px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
 
         .mission-card:hover {
+            transform: translateY(-10px);
             border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(214, 40, 40, 0.15);
         }
 
         .mission-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
         }
 
@@ -467,109 +479,91 @@
         }
 
         .mission-card p {
+            color: #666;
             line-height: 1.8;
-            color: var(--dark);
-            opacity: 0.8;
+            font-size: 1.05rem;
         }
 
         /* Impact Section */
         .impact {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .impact::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(247, 127, 0, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(214, 40, 40, 0.05) 0%, rgba(247, 127, 0, 0.05) 100%);
         }
 
         .impact-container {
             max-width: 1400px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
-        .impact h2 {
+        .impact-container h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: white;
             text-align: center;
+            color: var(--dark);
             margin-bottom: 4rem;
         }
 
         .impact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .impact-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: white;
             padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .impact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .impact-item h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--accent);
+            font-size: 1.6rem;
+            color: var(--primary);
             margin-bottom: 1rem;
         }
 
         .impact-item p {
-            color: rgba(255, 255, 255, 0.9);
+            color: #666;
             line-height: 1.8;
-            font-size: 1.1rem;
         }
 
         /* Values Section */
         .values {
             padding: 6rem 5%;
-            background: var(--light);
+            background: white;
         }
 
         .values-container {
             max-width: 1400px;
             margin: 0 auto;
-            text-align: center;
         }
 
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .value-item {
-            background: white;
+            text-align: center;
             padding: 2rem;
+            background: var(--light);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .value-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            background: white;
+            box-shadow: 0 10px 30px rgba(214, 40, 40, 0.1);
         }
 
         .value-icon {
@@ -584,11 +578,16 @@
             margin-bottom: 0.5rem;
         }
 
+        .value-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 5%;
+            padding: 4rem 5% 2rem;
         }
 
         .footer-container {
@@ -597,53 +596,52 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-        }
-
-        .footer-about {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-logo img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            
+            width: 40px;
+            height: 40px;
         }
 
-        .footer-about h3 {
+        .footer-logo h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin: 0;
+            font-size: 1.5rem;
+            color: var(--accent);
         }
 
         .footer-about p {
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
         .footer-links h4 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
         }
 
         .footer-links ul {
             list-style: none;
         }
 
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.7rem;
             transition: color 0.3s ease;
         }
 
@@ -652,93 +650,28 @@
         }
 
         .footer-bottom {
-            max-width: 1400px;
-            margin: 2rem auto 0;
+            text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            opacity: 0.6;
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 0.5rem;
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 249, 240, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-bottom: 1px solid rgba(214, 40, 40, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-        }
-
-        .mobile-menu.active {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .mobile-menu a {
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 1.1rem;
-            font-weight: 500;
-            display: block;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-donate-btn {
-            margin-top: 1rem;
-            display: block;
-            text-align: center;
-        }
-
-        /* Responsive Styles */
-        
-        /* Large Tablets and Small Desktops (1024px and below) */
+        /* Responsive Design */
         @media (max-width: 1024px) {
-            .nav-container {
-                padding: 0;
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
             }
 
             .hero-text h1 {
                 font-size: 3.5rem;
             }
 
-            .hero-text p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .mission-cards {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-cta {
+                justify-content: center;
             }
 
             .footer-container {
@@ -746,366 +679,90 @@
             }
         }
 
-        /* Tablets (768px and below) */
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 4%;
+            .nav-links,
+            .social-links,
+            .donate-btn {
+                display: none;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
-            .nav-links,
-            .donate-btn {
-                display: none;
-            }
-
-            .social-links {
-                gap: 0.7rem;
-            }
-
-            .social-links a {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
-            }
-
-            .social-links a svg {
-                width: 16px;
-                height: 16px;
+            .mobile-menu {
+                display: block;
             }
 
             .logo-text {
-                font-size: 1.5rem;
-            }
-
-            .logo-img {
-                width: 40px;
-                height: 40px;
+                font-size: 1.4rem;
             }
 
             .hero {
                 margin-top: 70px;
                 min-height: auto;
-                padding: 4rem 4% 3rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 1.2rem;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .hero-image {
-                margin-top: 2rem;
-            }
-
-            .image-card {
-                padding: 1.5rem;
-                transform: rotate(0deg);
-            }
-
-            .logo-showcase img {
-                width: 180px;
-                height: 180px;
-            }
-
-            .logo-showcase-text {
-                font-size: 1.5rem;
-            }
-
-            .stats {
-                padding: 3rem 4%;
-                margin-top: -30px;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .stat-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.95rem;
-            }
-
-            .mission,
-            .impact,
-            .values {
-                padding: 4rem 4%;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 3rem;
-            }
-
-            .mission-cards {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .mission-card {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .mission-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .impact h2 {
-                font-size: 2.2rem;
-                margin-bottom: 3rem;
-            }
-
-            .impact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .impact-item {
-                padding: 2rem;
-            }
-
-            .impact-item h3 {
-                font-size: 1.6rem;
-            }
-
-            .impact-item p {
-                font-size: 1rem;
-            }
-
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            footer {
-                padding: 3rem 4%;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .footer-about {
-                text-align: center;
-            }
-
-            .footer-logo {
-                justify-content: center;
-            }
-        }
-
-        /* Mobile Phones (480px and below) */
-        @media (max-width: 480px) {
-            nav {
-                padding: 0.8rem 5%;
-            }
-
-            .logo-text {
-                font-size: 1.3rem;
-            }
-
-            .logo-img {
-                width: 35px;
-                height: 35px;
-            }
-
-            .hero {
-                padding: 3rem 5% 2rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero-text p {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-            }
-
-            .logo-showcase img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .logo-showcase-text {
-                font-size: 1.3rem;
-            }
-
-            .stats {
-                padding: 2.5rem 5%;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-
-            .stat-card {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
-
-            .stat-label {
-                font-size: 0.9rem;
-            }
-
-            .mission,
-            .impact,
-            .values {
                 padding: 3rem 5%;
             }
 
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .cta-btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
             }
 
             .section-subtitle {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
-            .mission-card {
-                padding: 2rem 1.2rem;
-            }
-
-            .mission-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-
-            .mission-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .mission-card p {
-                font-size: 0.95rem;
-            }
-
-            .impact h2 {
-                font-size: 1.8rem;
-            }
-
-            .impact-item {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .impact-item h3 {
-                font-size: 1.4rem;
-            }
-
-            .impact-item p {
-                font-size: 0.95rem;
-            }
-
+            .mission-cards,
+            .impact-grid,
             .values-grid {
                 grid-template-columns: 1fr;
             }
 
-            .value-item {
-                padding: 1.5rem;
-            }
-
-            .value-icon {
-                font-size: 2.5rem;
-            }
-
-            .value-item h3 {
-                font-size: 1.3rem;
-            }
-
-            .footer-container {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
 
-            .footer-about h3 {
-                font-size: 1.5rem;
+            .stat-number {
+                font-size: 2.5rem;
             }
 
-            .footer-about p,
-            .footer-links a {
-                font-size: 0.9rem;
-            }
-
-            .footer-logo img {
-                width: 40px;
-                height: 40px;
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
-        /* Small Mobile Phones (360px and below) */
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
-            .hero-text .tagline {
-                font-size: 1rem;
+            .stats-container {
+                grid-template-columns: 1fr;
             }
 
             .section-title {
-                font-size: 1.6rem;
-            }
-
-            .mission-card,
-            .impact-item {
-                padding: 1.5rem 1rem;
+                font-size: 2rem;
             }
         }
     </style>
@@ -1116,10 +773,10 @@
         <div class="nav-container">
             <div class="logo">
                 <img src="./swastik.png" alt="ShubhVichar Logo" class="logo-img">
-                <div class="logo-text">ShubhVichar</div>
+                <span class="logo-text">ShubhVichar</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#values">Values</a></li>
@@ -1127,61 +784,58 @@
             </ul>
             <div class="nav-right">
                 <div class="social-links">
-                    <a  href="https://www.facebook.com/www.shubhvichar.org/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
+                    <a href="#" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                     </a>
-                    <a href="https://www.youtube.com/@jeetendracheck143" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
                     </a>
                 </div>
-                <a href="#donate" class="donate-btn">Support Us</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                    ☰
-                </button>
+                <a href="#donate" class="donate-btn">Donate Now</a>
             </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#home" class="mobile-link">Home</a></li>
+        <ul class="mobile-nav-links">
+            <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#mission" class="mobile-link">Mission</a></li>
             <li><a href="#impact" class="mobile-link">Impact</a></li>
             <li><a href="#values" class="mobile-link">Values</a></li>
             <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
-        <a href="#donate" class="donate-btn mobile-donate-btn">Support Us</a>
+        <div class="mobile-social-links">
+            <a href="#" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+            </a>
+        </div>
+        <a href="#donate" class="mobile-donate-btn mobile-link">Donate Now</a>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>ShubhVichar</h1>
-                <p class="tagline">Spreading Positive Thoughts & Actions</p>
-                <p>Empowering communities through auspicious thinking, meaningful action, and sustainable development. Join us in creating a brighter future built on positivity and purpose.</p>
-                <div class="cta-buttons">
-                    <a href="#donate" class="btn-primary">Make an Impact</a>
-                    <a href="#mission" class="btn-secondary">Our Vision</a>
+                <h1>Transforming <span class="highlight">Positive Thoughts</span> into Meaningful Actions</h1>
+                <p>ShubhVichar is committed to empowering communities through cultural preservation, quality education, and sustainable development rooted in timeless values.</p>
+                <div class="hero-cta">
+                    <a href="#mission" class="cta-btn cta-primary">Explore Our Mission →</a>
+                    <a href="#impact" class="cta-btn cta-secondary">See Our Impact</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-card">
-                    <div class="logo-showcase">
-                        <img src="./swastik.png" alt="ShubhVichar Symbol">
-                        <div class="logo-showcase-text">Symbol of Prosperity & Well-being</div>
-                    </div>
-                </div>
+                <img src="./swastik.png" alt="ShubhVichar Impact">
             </div>
         </div>
     </section>
@@ -1189,21 +843,21 @@
     <!-- Stats Section -->
     <section class="stats">
         <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">25K+</div>
-                <div class="stat-label">Lives Transformed</div>
+            <div class="stat-item">
+                <span class="stat-number">25,000</span>
+                <span class="stat-label">Lives Impacted</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">75+</div>
-                <div class="stat-label">Communities Reached</div>
+            <div class="stat-item">
+                <span class="stat-number">75</span>
+                <span class="stat-label">Active Programs</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Years of Service</div>
+            <div class="stat-item">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Years of Service</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Impact Success Rate</div>
+            <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">Positive Outcomes</span>
             </div>
         </div>
     </section>
@@ -1212,7 +866,7 @@
     <section class="mission" id="mission">
         <div class="mission-container">
             <h2 class="section-title">Our Mission</h2>
-            <p class="section-subtitle">ShubhVichar believes in the power of positive thinking and meaningful action. We work to create sustainable change through holistic development initiatives.</p>
+            <p class="section-subtitle">Building a harmonious society through holistic development and cultural values</p>
             
             <div class="mission-cards">
                 <div class="mission-card">
@@ -1321,7 +975,7 @@
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#11787f777e5162796473796778727970633f7e6376"><span class="__cf_email__" data-cfemail="472e29212807342f32252f312e242f263569283520">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:contact@shubhvichar.org">contact@shubhvichar.org</a></li>
                     <li><a href="tel:+911234567890">+91 12345 67890</a></li>
                     <li><a href="#location">Find Us</a></li>
                 </ul>
@@ -1332,7 +986,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1434,3 +1088,14 @@
                         }, index * 100);
                     });
                     statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
