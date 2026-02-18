@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShubhVichar - Spreading Positive Thoughts & Actions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #d62828;
@@ -29,6 +29,57 @@
             background: var(--light);
         }
 
+        body.lang-hi {
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px 0 0 12px;
+            box-shadow: -4px 0 20px rgba(214, 40, 40, 0.2);
+            overflow: hidden;
+            border: 1px solid rgba(214, 40, 40, 0.15);
+            border-right: none;
+        }
+
+        .lang-btn {
+            padding: 0.8rem 1rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(214, 40, 40, 0.08);
+            color: var(--primary);
+        }
+
+        .lang-divider {
+            height: 1px;
+            background: rgba(214, 40, 40, 0.15);
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -43,14 +94,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .nav-container {
@@ -107,13 +152,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--accent); }
 
         .nav-right {
             display: flex;
@@ -148,11 +188,7 @@
             background: var(--accent);
         }
 
-        .social-links a svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
+        .social-links a svg { width: 18px; height: 18px; fill: currentColor; }
 
         .donate-btn {
             background: var(--primary);
@@ -186,22 +222,15 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1.5" fill="rgba(255,255,255,0.15)"/></svg>');
             opacity: 0.4;
             animation: float 20s linear infinite;
         }
 
         @keyframes float {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-100px);
-            }
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
         }
 
         .hero-content {
@@ -228,16 +257,16 @@
 
         .hero-text .tagline {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(255,255,255,0.95);
             font-weight: 600;
             margin-bottom: 1rem;
             animation: fadeInUp 0.8s ease-out 0.3s both;
             font-style: italic;
         }
 
-        .hero-text p {
+        .hero-text p:not(.tagline) {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255,255,255,0.9);
             line-height: 1.8;
             margin-bottom: 2.5rem;
             font-weight: 300;
@@ -245,14 +274,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .cta-buttons {
@@ -274,12 +297,12 @@
         .btn-primary {
             background: white;
             color: var(--primary);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 35px rgba(255,255,255,0.4);
         }
 
         .btn-secondary {
@@ -288,9 +311,7 @@
             border: 2px solid white;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
 
         .hero-image {
             position: relative;
@@ -298,26 +319,20 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .image-card {
             background: white;
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             transform: rotate(-2deg);
             transition: transform 0.3s ease;
         }
 
-        .image-card:hover {
-            transform: rotate(0deg);
-        }
+        .image-card:hover { transform: rotate(0deg); }
 
         .logo-showcase {
             display: flex;
@@ -331,7 +346,7 @@
             width: 250px;
             height: 250px;
             object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
         }
 
         .logo-showcase-text {
@@ -342,7 +357,7 @@
             text-align: center;
         }
 
-        /* Stats Section */
+        /* Stats */
         .stats {
             background: var(--light);
             padding: 4rem 5%;
@@ -364,20 +379,14 @@
             padding: 2.5rem 2rem;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out both;
             border-top: 4px solid var(--primary);
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-        .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
         .stat-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .stat-number {
@@ -389,22 +398,12 @@
             line-height: 1;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--dark);
-            font-weight: 400;
-        }
+        .stat-label { font-size: 1.1rem; color: var(--dark); font-weight: 400; }
 
-        /* Mission Section */
-        .mission {
-            padding: 6rem 5%;
-            background: white;
-        }
+        /* Mission */
+        .mission { padding: 6rem 5%; background: white; }
 
-        .mission-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .mission-container { max-width: 1400px; margin: 0 auto; }
 
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -444,7 +443,7 @@
         .mission-card:hover {
             border-color: var(--accent);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .mission-icon {
@@ -466,13 +465,9 @@
             margin-bottom: 1rem;
         }
 
-        .mission-card p {
-            line-height: 1.8;
-            color: var(--dark);
-            opacity: 0.8;
-        }
+        .mission-card p { line-height: 1.8; color: var(--dark); opacity: 0.8; }
 
-        /* Impact Section */
+        /* Impact */
         .impact {
             padding: 6rem 5%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -483,20 +478,13 @@
         .impact::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(247, 127, 0, 0.2) 0%, transparent 70%);
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(247,127,0,0.2) 0%, transparent 70%);
             border-radius: 50%;
         }
 
-        .impact-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+        .impact-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
 
         .impact h2 {
             font-family: 'Playfair Display', serif;
@@ -507,25 +495,18 @@
             margin-bottom: 4rem;
         }
 
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
+        .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
 
         .impact-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             padding: 2.5rem;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
         }
 
-        .impact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.02);
-        }
+        .impact-item:hover { background: rgba(255,255,255,0.15); transform: scale(1.02); }
 
         .impact-item h3 {
             font-family: 'Playfair Display', serif;
@@ -534,23 +515,12 @@
             margin-bottom: 1rem;
         }
 
-        .impact-item p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
+        .impact-item p { color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 1.1rem; }
 
-        /* Values Section */
-        .values {
-            padding: 6rem 5%;
-            background: var(--light);
-        }
+        /* Values */
+        .values { padding: 6rem 5%; background: var(--light); }
 
-        .values-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        .values-container { max-width: 1400px; margin: 0 auto; text-align: center; }
 
         .values-grid {
             display: grid;
@@ -563,19 +533,13 @@
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
-        .value-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+        .value-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+        .value-icon { font-size: 3rem; margin-bottom: 1rem; }
 
         .value-item h3 {
             font-family: 'Playfair Display', serif;
@@ -585,11 +549,7 @@
         }
 
         /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 5%;
-        }
+        footer { background: var(--dark); color: white; padding: 3rem 5%; }
 
         .footer-container {
             max-width: 1400px;
@@ -599,63 +559,35 @@
             gap: 3rem;
         }
 
-        .footer-about {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+        .footer-about { display: flex; flex-direction: column; gap: 1rem; }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .footer-logo { display: flex; align-items: center; gap: 1rem; }
 
-        .footer-logo img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-           
-        }
+        .footer-logo img { width: 50px; height: 50px; object-fit: contain; }
 
-        .footer-about h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin: 0;
-        }
+        .footer-about h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; }
 
-        .footer-about p {
-            opacity: 0.8;
-            line-height: 1.8;
-        }
+        .footer-about p { opacity: 0.8; line-height: 1.8; }
 
-        .footer-links h4 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
+        .footer-links h4 { font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; }
 
-        .footer-links ul {
-            list-style: none;
-        }
+        .footer-links ul { list-style: none; }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             display: block;
             margin-bottom: 0.7rem;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--accent);
-        }
+        .footer-links a:hover { color: var(--accent); }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 2rem auto 0;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
             opacity: 0.6;
         }
@@ -674,28 +606,18 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 249, 240, 0.98);
+            top: 70px; left: 0; right: 0;
+            background: rgba(255,249,240,0.98);
             backdrop-filter: blur(10px);
             padding: 2rem;
-            border-bottom: 1px solid rgba(214, 40, 40, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(214,40,40,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             z-index: 999;
         }
 
-        .mobile-menu.active {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
+        .mobile-menu.active { display: block; animation: slideDown 0.3s ease-out; }
 
-        .mobile-menu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
 
         .mobile-menu a {
             text-decoration: none;
@@ -707,9 +629,7 @@
             transition: color 0.3s ease;
         }
 
-        .mobile-menu a:hover {
-            color: var(--primary);
-        }
+        .mobile-menu a:hover { color: var(--primary); }
 
         .mobile-social-links {
             display: flex;
@@ -717,440 +637,116 @@
             justify-content: center;
             margin: 1.5rem 0;
             padding: 1rem 0;
-            border-top: 1px solid rgba(214, 40, 40, 0.1);
-            border-bottom: 1px solid rgba(214, 40, 40, 0.1);
+            border-top: 1px solid rgba(214,40,40,0.1);
+            border-bottom: 1px solid rgba(214,40,40,0.1);
         }
 
-        .mobile-social-links a {
-            transition: transform 0.3s ease;
-        }
+        .mobile-social-links a { transition: transform 0.3s ease; }
+        .mobile-social-links a:hover { transform: translateY(-3px); }
 
-        .mobile-social-links a:hover {
-            transform: translateY(-3px);
-        }
+        .mobile-donate-btn { margin-top: 1rem; display: block; text-align: center; }
 
-        .mobile-donate-btn {
-            margin-top: 1rem;
-            display: block;
-            text-align: center;
-        }
-
-        /* Responsive Styles */
-        
-        /* Large Tablets and Small Desktops (1024px and below) */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .nav-container {
-                padding: 0;
-            }
-
-            .hero-text h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-text p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .mission-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-text h1 { font-size: 3.5rem; }
+            .hero-text p { font-size: 1.1rem; }
+            .section-title { font-size: 2.5rem; }
+            .mission-cards { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* Tablets (768px and below) */
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 4%;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links,
-            .social-links,
-            .donate-btn {
-                display: none !important;
-            }
-
-            .logo-text {
-                font-size: 1.5rem;
-            }
-
-            .logo-img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .hero {
-                margin-top: 70px;
-                min-height: auto;
-                padding: 4rem 4% 3rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 1.2rem;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .hero-image {
-                margin-top: 2rem;
-            }
-
-            .image-card {
-                padding: 1.5rem;
-                transform: rotate(0deg);
-            }
-
-            .logo-showcase img {
-                width: 180px;
-                height: 180px;
-            }
-
-            .logo-showcase-text {
-                font-size: 1.5rem;
-            }
-
-            .stats {
-                padding: 3rem 4%;
-                margin-top: -30px;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .stat-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.95rem;
-            }
-
-            .mission,
-            .impact,
-            .values {
-                padding: 4rem 4%;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 3rem;
-            }
-
-            .mission-cards {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .mission-card {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .mission-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .impact h2 {
-                font-size: 2.2rem;
-                margin-bottom: 3rem;
-            }
-
-            .impact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .impact-item {
-                padding: 2rem;
-            }
-
-            .impact-item h3 {
-                font-size: 1.6rem;
-            }
-
-            .impact-item p {
-                font-size: 1rem;
-            }
-
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            footer {
-                padding: 3rem 4%;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .footer-about {
-                text-align: center;
-            }
-
-            .footer-logo {
-                justify-content: center;
-            }
+            nav { padding: 1rem 4%; }
+            .mobile-menu-btn { display: block; }
+            .nav-links, .social-links, .donate-btn { display: none !important; }
+            .logo-text { font-size: 1.5rem; }
+            .logo-img { width: 40px; height: 40px; }
+            .hero { margin-top: 70px; min-height: auto; padding: 4rem 4% 3rem; }
+            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-text { text-align: center; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .hero-text .tagline { font-size: 1.2rem; }
+            .hero-text p:not(.tagline) { font-size: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; gap: 1rem; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+            .hero-image { margin-top: 2rem; }
+            .image-card { padding: 1.5rem; transform: rotate(0deg); }
+            .logo-showcase img { width: 180px; height: 180px; }
+            .logo-showcase-text { font-size: 1.5rem; }
+            .stats { padding: 3rem 4%; margin-top: -30px; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .stat-card { padding: 2rem 1.5rem; }
+            .stat-number { font-size: 2.5rem; }
+            .stat-label { font-size: 0.95rem; }
+            .mission, .impact, .values { padding: 4rem 4%; }
+            .section-title { font-size: 2.2rem; }
+            .section-subtitle { font-size: 1rem; margin-bottom: 3rem; }
+            .mission-cards { grid-template-columns: 1fr; gap: 2rem; }
+            .mission-card { padding: 2.5rem 1.5rem; }
+            .mission-card h3 { font-size: 1.5rem; }
+            .impact h2 { font-size: 2.2rem; margin-bottom: 3rem; }
+            .impact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .impact-item { padding: 2rem; }
+            .impact-item h3 { font-size: 1.6rem; }
+            .impact-item p { font-size: 1rem; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            footer { padding: 3rem 4%; }
+            .footer-container { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-about { text-align: center; }
+            .footer-logo { justify-content: center; }
+            .lang-toggle { top: auto; bottom: 20px; transform: none; border-radius: 12px 0 0 12px; }
         }
 
-        /* Mobile Phones (480px and below) */
         @media (max-width: 480px) {
-            nav {
-                padding: 0.8rem 5%;
-            }
-
-            .logo-text {
-                font-size: 1.3rem;
-            }
-
-            .logo-img {
-                width: 35px;
-                height: 35px;
-            }
-
-            .hero {
-                padding: 3rem 5% 2rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero-text p {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-            }
-
-            .logo-showcase img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .logo-showcase-text {
-                font-size: 1.3rem;
-            }
-
-            .stats {
-                padding: 2.5rem 5%;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-
-            .stat-card {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
-
-            .stat-label {
-                font-size: 0.9rem;
-            }
-
-            .mission,
-            .impact,
-            .values {
-                padding: 3rem 5%;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .mission-card {
-                padding: 2rem 1.2rem;
-            }
-
-            .mission-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-
-            .mission-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .mission-card p {
-                font-size: 0.95rem;
-            }
-
-            .impact h2 {
-                font-size: 1.8rem;
-            }
-
-            .impact-item {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .impact-item h3 {
-                font-size: 1.4rem;
-            }
-
-            .impact-item p {
-                font-size: 0.95rem;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .value-item {
-                padding: 1.5rem;
-            }
-
-            .value-icon {
-                font-size: 2.5rem;
-            }
-
-            .value-item h3 {
-                font-size: 1.3rem;
-            }
-
-            .footer-container {
-                gap: 2rem;
-            }
-
-            .footer-about h3 {
-                font-size: 1.5rem;
-            }
-
-            .footer-about p,
-            .footer-links a {
-                font-size: 0.9rem;
-            }
-
-            .footer-logo img {
-                width: 40px;
-                height: 40px;
-            }
+            .hero-text h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+            .stats-container { grid-template-columns: 1fr; gap: 1.2rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-container { gap: 2rem; }
         }
 
-        /* Small Mobile Phones (360px and below) */
         @media (max-width: 360px) {
-            .hero-text h1 {
-                font-size: 1.9rem;
-            }
-
-            .hero-text .tagline {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .mission-card,
-            .impact-item {
-                padding: 1.5rem 1rem;
-            }
+            .hero-text h1 { font-size: 1.9rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn active" id="btnEn" onclick="setLang('en')">EN</button>
+        <div class="lang-divider"></div>
+        <button class="lang-btn" id="btnHi" onclick="setLang('hi')">हिं</button>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <img src="./swastik.png" alt="ShubhVichar Logo" class="logo-img">
-                <div class="logo-text">ShubhVichar</div>
+                <div class="logo-text" data-en="ShubhVichar" data-hi="शुभविचार">ShubhVichar</div>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#values">Values</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="#mission" data-en="Mission" data-hi="मिशन">Mission</a></li>
+                <li><a href="#impact" data-en="Impact" data-hi="प्रभाव">Impact</a></li>
+                <li><a href="#values" data-en="Values" data-hi="मूल्य">Values</a></li>
+                <li><a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a></li>
             </ul>
             <div class="nav-right">
                 <div class="social-links">
                     <a href="https://www.facebook.com/www.shubhvichar.org/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                     </a>
                     <a href="https://www.youtube.com/@%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%B5%E0%A4%BF%E0%A4%9A%E0%A4%BE%E0%A4%B0" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
-                <a href="#donate" class="donate-btn">Support Us</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                    ☰
-                </button>
+                <a href="#donate" class="donate-btn" data-en="Support Us" data-hi="हमें सहयोग दें">Support Us</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
             </div>
         </div>
     </nav>
@@ -1158,49 +754,43 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#home" class="mobile-link">Home</a></li>
-            <li><a href="#mission" class="mobile-link">Mission</a></li>
-            <li><a href="#impact" class="mobile-link">Impact</a></li>
-            <li><a href="#values" class="mobile-link">Values</a></li>
-            <li><a href="#contact" class="mobile-link">Contact</a></li>
+            <li><a href="#home" class="mobile-link" data-en="Home" data-hi="होम">Home</a></li>
+            <li><a href="#mission" class="mobile-link" data-en="Mission" data-hi="मिशन">Mission</a></li>
+            <li><a href="#impact" class="mobile-link" data-en="Impact" data-hi="प्रभाव">Impact</a></li>
+            <li><a href="#values" class="mobile-link" data-en="Values" data-hi="मूल्य">Values</a></li>
+            <li><a href="#contact" class="mobile-link" data-en="Contact" data-hi="संपर्क">Contact</a></li>
         </ul>
         <div class="mobile-social-links">
             <a href="https://www.facebook.com/www.shubhvichar.org/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                    <path fill="var(--primary)" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                    <path fill="var(--primary)" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
             </a>
             <a href="https://www.youtube.com/@%E0%A4%B6%E0%A5%81%E0%A4%AD%E0%A4%B5%E0%A4%BF%E0%A4%9A%E0%A4%BE%E0%A4%B0" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35">
-                    <path fill="var(--primary)" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35"><path fill="var(--primary)" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
         </div>
-        <a href="#donate" class="donate-btn mobile-donate-btn mobile-link">Support Us</a>
+        <a href="#donate" class="donate-btn mobile-donate-btn mobile-link" data-en="Support Us" data-hi="हमें सहयोग दें">Support Us</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>ShubhVichar</h1>
-                <p class="tagline">Spreading Positive Thoughts & Actions</p>
-                <p>Empowering communities through auspicious thinking, meaningful action, and sustainable development. Join us in creating a brighter future built on positivity and purpose.</p>
+                <h1 data-en="ShubhVichar" data-hi="शुभविचार">ShubhVichar</h1>
+                <p class="tagline" data-en="Spreading Positive Thoughts & Actions" data-hi="सकारात्मक विचार और कार्यों का प्रसार">Spreading Positive Thoughts & Actions</p>
+                <p data-en="Empowering communities through auspicious thinking, meaningful action, and sustainable development. Join us in creating a brighter future built on positivity and purpose." data-hi="शुभ विचार, सार्थक कार्य और टिकाऊ विकास के माध्यम से समुदायों को सशक्त बनाना। सकारात्मकता और उद्देश्य पर निर्मित एक उज्जवल भविष्य बनाने में हमारे साथ जुड़ें।">Empowering communities through auspicious thinking, meaningful action, and sustainable development. Join us in creating a brighter future built on positivity and purpose.</p>
                 <div class="cta-buttons">
-                    <a href="#donate" class="btn-primary">Make an Impact</a>
-                    <a href="#mission" class="btn-secondary">Our Vision</a>
+                    <a href="#donate" class="btn-primary" data-en="Make an Impact" data-hi="प्रभाव डालें">Make an Impact</a>
+                    <a href="#mission" class="btn-secondary" data-en="Our Vision" data-hi="हमारी दृष्टि">Our Vision</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="image-card">
                     <div class="logo-showcase">
                         <img src="./swastik.png" alt="ShubhVichar Symbol">
-                        <div class="logo-showcase-text">Symbol of Prosperity & Well-being</div>
+                        <div class="logo-showcase-text" data-en="Symbol of Prosperity & Well-being" data-hi="समृद्धि और कल्याण का प्रतीक">Symbol of Prosperity & Well-being</div>
                     </div>
                 </div>
             </div>
@@ -1212,19 +802,19 @@
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-number">25K+</div>
-                <div class="stat-label">Lives Transformed</div>
+                <div class="stat-label" data-en="Lives Transformed" data-hi="जीवन बदले">Lives Transformed</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">75+</div>
-                <div class="stat-label">Communities Reached</div>
+                <div class="stat-label" data-en="Communities Reached" data-hi="समुदाय जुड़े">Communities Reached</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">10+</div>
-                <div class="stat-label">Years of Service</div>
+                <div class="stat-label" data-en="Years of Service" data-hi="सेवा के वर्ष">Years of Service</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">95%</div>
-                <div class="stat-label">Impact Success Rate</div>
+                <div class="stat-label" data-en="Impact Success Rate" data-hi="सफलता दर">Impact Success Rate</div>
             </div>
         </div>
     </section>
@@ -1232,24 +822,24 @@
     <!-- Mission Section -->
     <section class="mission" id="mission">
         <div class="mission-container">
-            <h2 class="section-title">Our Mission</h2>
-            <p class="section-subtitle">ShubhVichar believes in the power of positive thinking and meaningful action. We work to create sustainable change through holistic development initiatives.</p>
+            <h2 class="section-title" data-en="Our Mission" data-hi="हमारा मिशन">Our Mission</h2>
+            <p class="section-subtitle" data-en="ShubhVichar believes in the power of positive thinking and meaningful action. We work to create sustainable change through holistic development initiatives." data-hi="शुभविचार सकारात्मक सोच और सार्थक कार्य की शक्ति में विश्वास करता है। हम समग्र विकास पहलों के माध्यम से टिकाऊ परिवर्तन लाने के लिए कार्य करते हैं।">ShubhVichar believes in the power of positive thinking and meaningful action. We work to create sustainable change through holistic development initiatives.</p>
             
             <div class="mission-cards">
                 <div class="mission-card">
                     <div class="mission-icon">🙏</div>
-                    <h3>Cultural Values</h3>
-                    <p>Preserving and promoting positive cultural values, traditional wisdom, and spiritual well-being alongside modern development approaches.</p>
+                    <h3 data-en="Cultural Values" data-hi="सांस्कृतिक मूल्य">Cultural Values</h3>
+                    <p data-en="Preserving and promoting positive cultural values, traditional wisdom, and spiritual well-being alongside modern development approaches." data-hi="आधुनिक विकास दृष्टिकोण के साथ-साथ सकारात्मक सांस्कृतिक मूल्यों, पारंपरिक ज्ञान और आध्यात्मिक कल्याण को संरक्षित और प्रोत्साहित करना।">Preserving and promoting positive cultural values, traditional wisdom, and spiritual well-being alongside modern development approaches.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">📚</div>
-                    <h3>Education & Learning</h3>
-                    <p>Providing quality education rooted in values, fostering critical thinking, and developing well-rounded individuals who contribute positively to society.</p>
+                    <h3 data-en="Education & Learning" data-hi="शिक्षा और ज्ञान">Education & Learning</h3>
+                    <p data-en="Providing quality education rooted in values, fostering critical thinking, and developing well-rounded individuals who contribute positively to society." data-hi="मूल्यों में निहित गुणवत्तापूर्ण शिक्षा प्रदान करना, आलोचनात्मक सोच को बढ़ावा देना और ऐसे व्यक्तियों को विकसित करना जो समाज में सकारात्मक योगदान दें।">Providing quality education rooted in values, fostering critical thinking, and developing well-rounded individuals who contribute positively to society.</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">🌟</div>
-                    <h3>Community Development</h3>
-                    <p>Building strong, self-reliant communities through sustainable livelihood programs, skill development, and grassroots empowerment initiatives.</p>
+                    <h3 data-en="Community Development" data-hi="सामुदायिक विकास">Community Development</h3>
+                    <p data-en="Building strong, self-reliant communities through sustainable livelihood programs, skill development, and grassroots empowerment initiatives." data-hi="टिकाऊ आजीविका कार्यक्रमों, कौशल विकास और जमीनी स्तर पर सशक्तिकरण पहलों के माध्यम से मजबूत, आत्मनिर्भर समुदायों का निर्माण करना।">Building strong, self-reliant communities through sustainable livelihood programs, skill development, and grassroots empowerment initiatives.</p>
                 </div>
             </div>
         </div>
@@ -1258,23 +848,23 @@
     <!-- Impact Section -->
     <section class="impact" id="impact">
         <div class="impact-container">
-            <h2>Stories of Positive Change</h2>
+            <h2 data-en="Stories of Positive Change" data-hi="सकारात्मक बदलाव की कहानियाँ">Stories of Positive Change</h2>
             <div class="impact-grid">
                 <div class="impact-item">
-                    <h3>Education Excellence</h3>
-                    <p>Established 15 value-based learning centers across rural areas, providing holistic education to 2,500+ children with a focus on academic excellence and character building.</p>
+                    <h3 data-en="Education Excellence" data-hi="शिक्षा उत्कृष्टता">Education Excellence</h3>
+                    <p data-en="Established 15 value-based learning centers across rural areas, providing holistic education to 2,500+ children with a focus on academic excellence and character building." data-hi="ग्रामीण क्षेत्रों में 15 मूल्य-आधारित शिक्षा केंद्र स्थापित किए, जो शैक्षणिक उत्कृष्टता और चरित्र निर्माण पर ध्यान केंद्रित करते हुए 2,500+ बच्चों को समग्र शिक्षा प्रदान करते हैं।">Established 15 value-based learning centers across rural areas, providing holistic education to 2,500+ children with a focus on academic excellence and character building.</p>
                 </div>
                 <div class="impact-item">
-                    <h3>Women Empowerment</h3>
-                    <p>Trained 1,800+ women in traditional crafts and modern skills, helping them achieve financial independence while preserving cultural heritage.</p>
+                    <h3 data-en="Women Empowerment" data-hi="महिला सशक्तिकरण">Women Empowerment</h3>
+                    <p data-en="Trained 1,800+ women in traditional crafts and modern skills, helping them achieve financial independence while preserving cultural heritage." data-hi="1,800+ महिलाओं को पारंपरिक शिल्प और आधुनिक कौशल में प्रशिक्षित किया, सांस्कृतिक विरासत को संरक्षित करते हुए उन्हें आर्थिक स्वतंत्रता प्राप्त करने में मदद की।">Trained 1,800+ women in traditional crafts and modern skills, helping them achieve financial independence while preserving cultural heritage.</p>
                 </div>
                 <div class="impact-item">
-                    <h3>Wellness Programs</h3>
-                    <p>Conducted yoga, meditation, and wellness workshops for 5,000+ individuals, promoting mental health and holistic well-being in communities.</p>
+                    <h3 data-en="Wellness Programs" data-hi="स्वास्थ्य कार्यक्रम">Wellness Programs</h3>
+                    <p data-en="Conducted yoga, meditation, and wellness workshops for 5,000+ individuals, promoting mental health and holistic well-being in communities." data-hi="5,000+ व्यक्तियों के लिए योग, ध्यान और स्वास्थ्य कार्यशालाएं आयोजित कीं, समुदायों में मानसिक स्वास्थ्य और समग्र कल्याण को बढ़ावा दिया।">Conducted yoga, meditation, and wellness workshops for 5,000+ individuals, promoting mental health and holistic well-being in communities.</p>
                 </div>
                 <div class="impact-item">
-                    <h3>Cultural Preservation</h3>
-                    <p>Documented and revived 25+ traditional art forms and cultural practices, creating livelihood opportunities while preserving our rich heritage.</p>
+                    <h3 data-en="Cultural Preservation" data-hi="सांस्कृतिक संरक्षण">Cultural Preservation</h3>
+                    <p data-en="Documented and revived 25+ traditional art forms and cultural practices, creating livelihood opportunities while preserving our rich heritage." data-hi="25+ पारंपरिक कला रूपों और सांस्कृतिक प्रथाओं को दस्तावेजीकृत और पुनर्जीवित किया, हमारी समृद्ध विरासत को संरक्षित करते हुए आजीविका के अवसर बनाए।">Documented and revived 25+ traditional art forms and cultural practices, creating livelihood opportunities while preserving our rich heritage.</p>
                 </div>
             </div>
         </div>
@@ -1283,88 +873,113 @@
     <!-- Values Section -->
     <section class="values" id="values">
         <div class="values-container">
-            <h2 class="section-title">Our Core Values</h2>
-            <p class="section-subtitle">The principles that guide every action we take</p>
+            <h2 class="section-title" data-en="Our Core Values" data-hi="हमारे मूल मूल्य">Our Core Values</h2>
+            <p class="section-subtitle" data-en="The principles that guide every action we take" data-hi="वे सिद्धांत जो हमारे हर कार्य को मार्गदर्शन देते हैं">The principles that guide every action we take</p>
             <div class="values-grid">
                 <div class="value-item">
                     <div class="value-icon">🕉️</div>
-                    <h3>Positivity</h3>
-                    <p>Shubh thoughts lead to auspicious outcomes</p>
+                    <h3 data-en="Positivity" data-hi="सकारात्मकता">Positivity</h3>
+                    <p data-en="Shubh thoughts lead to auspicious outcomes" data-hi="शुभ विचार शुभ परिणामों की ओर ले जाते हैं">Shubh thoughts lead to auspicious outcomes</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">🤝</div>
-                    <h3>Compassion</h3>
-                    <p>Serving with empathy and kindness</p>
+                    <h3 data-en="Compassion" data-hi="करुणा">Compassion</h3>
+                    <p data-en="Serving with empathy and kindness" data-hi="सहानुभूति और दया के साथ सेवा करना">Serving with empathy and kindness</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">💪</div>
-                    <h3>Integrity</h3>
-                    <p>Transparent and ethical in all we do</p>
+                    <h3 data-en="Integrity" data-hi="ईमानदारी">Integrity</h3>
+                    <p data-en="Transparent and ethical in all we do" data-hi="हर कार्य में पारदर्शी और नैतिक">Transparent and ethical in all we do</p>
                 </div>
                 <div class="value-item">
                     <div class="value-icon">🌱</div>
-                    <h3>Sustainability</h3>
-                    <p>Creating lasting positive change</p>
+                    <h3 data-en="Sustainability" data-hi="स्थायित्व">Sustainability</h3>
+                    <p data-en="Creating lasting positive change" data-hi="स्थायी सकारात्मक परिवर्तन बनाना">Creating lasting positive change</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="footer-container">
             <div class="footer-about">
                 <div class="footer-logo">
                     <img src="./swastik.png" alt="ShubhVichar Logo">
-                    <h3>ShubhVichar</h3>
+                    <h3 data-en="ShubhVichar" data-hi="शुभविचार">ShubhVichar</h3>
                 </div>
-                <p>Dedicated to spreading positive thoughts and transforming them into meaningful actions that uplift communities and preserve our cultural heritage.</p>
-                <p style="opacity: 0.6; font-size: 0.9rem;">© 2024 ShubhVichar. All rights reserved.</p>
+                <p data-en="Dedicated to spreading positive thoughts and transforming them into meaningful actions that uplift communities and preserve our cultural heritage." data-hi="सकारात्मक विचारों का प्रसार करने और उन्हें सार्थक कार्यों में परिवर्तित करने के लिए समर्पित, जो समुदायों को ऊपर उठाएं और हमारी सांस्कृतिक विरासत को संरक्षित करें।">Dedicated to spreading positive thoughts and transforming them into meaningful actions that uplift communities and preserve our cultural heritage.</p>
+                <p style="opacity: 0.6; font-size: 0.9rem;" data-en="© 2024 ShubhVichar. All rights reserved." data-hi="© 2024 शुभविचार। सर्वाधिकार सुरक्षित।">© 2024 ShubhVichar. All rights reserved.</p>
             </div>
             <div class="footer-links">
-                <h4>Quick Links</h4>
+                <h4 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#programs">Our Programs</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#careers">Join Us</a></li>
+                    <li><a href="#about" data-en="About Us" data-hi="हमारे बारे में">About Us</a></li>
+                    <li><a href="#programs" data-en="Our Programs" data-hi="हमारे कार्यक्रम">Our Programs</a></li>
+                    <li><a href="#team" data-en="Our Team" data-hi="हमारी टीम">Our Team</a></li>
+                    <li><a href="#careers" data-en="Join Us" data-hi="हमसे जुड़ें">Join Us</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Get Involved</h4>
+                <h4 data-en="Get Involved" data-hi="भाग लें">Get Involved</h4>
                 <ul>
-                    <li><a href="#donate">Donate</a></li>
-                    <li><a href="#volunteer">Volunteer</a></li>
-                    <li><a href="#partner">Partner With Us</a></li>
-                    <li><a href="#events">Events</a></li>
+                    <li><a href="#donate" data-en="Donate" data-hi="दान करें">Donate</a></li>
+                    <li><a href="#volunteer" data-en="Volunteer" data-hi="स्वयंसेवक बनें">Volunteer</a></li>
+                    <li><a href="#partner" data-en="Partner With Us" data-hi="हमारे साथ जुड़ें">Partner With Us</a></li>
+                    <li><a href="#events" data-en="Events" data-hi="आयोजन">Events</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Contact</h4>
+                <h4 data-en="Contact" data-hi="संपर्क">Contact</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#11787f777e5162796473796778727970633f7e6376"><span class="__cf_email__" data-cfemail="472e29212807342f32252f312e242f263569283520">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:info@shubhvichar.org">info@shubhvichar.org</a></li>
                     <li><a href="tel:+911234567890">+91 12345 67890</a></li>
-                    <li><a href="#location">Find Us</a></li>
+                    <li><a href="#location" data-en="Find Us" data-hi="हमें खोजें">Find Us</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Transforming positive thoughts into positive actions, one community at a time.</p>
+            <p data-en="Transforming positive thoughts into positive actions, one community at a time." data-hi="एक समय में एक समुदाय को, सकारात्मक विचारों को सकारात्मक कार्यों में बदलना।">Transforming positive thoughts into positive actions, one community at a time.</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Mobile Menu Toggle
+    <script>
+        // ── Language System ──────────────────────────────────
+        let currentLang = 'en';
+
+        function setLang(lang) {
+            currentLang = lang;
+
+            // Update active button
+            document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+            document.getElementById('btnHi').classList.toggle('active', lang === 'hi');
+
+            // Update body class for font switching
+            document.body.classList.toggle('lang-hi', lang === 'hi');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.dataset[lang] || el.dataset.en;
+            });
+
+            // Update html lang attribute
+            document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
+
+            // Update page title
+            document.title = lang === 'hi'
+                ? 'शुभविचार - सकारात्मक विचारों और कार्यों का प्रसार'
+                : 'ShubhVichar - Spreading Positive Thoughts & Actions';
+        }
+
+        // ── Mobile Menu ──────────────────────────────────────
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
-            // Change icon
             mobileMenuBtn.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
@@ -1372,7 +987,6 @@
             });
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 mobileMenu.classList.remove('active');
@@ -1380,26 +994,16 @@
             }
         });
 
-        // Smooth scrolling for navigation links
+        // ── Smooth Scroll ────────────────────────────────────
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Intersection Observer for animations on scroll
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // ── Scroll Animations ────────────────────────────────
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1407,9 +1011,8 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
-        // Observe mission cards and impact items
         document.querySelectorAll('.mission-card, .impact-item, .value-item').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
@@ -1417,17 +1020,13 @@
             observer.observe(card);
         });
 
-        // Add active state to nav on scroll
+        // ── Nav Shadow on Scroll ─────────────────────────────
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.boxShadow = 'none';
-            }
+            document.querySelector('nav').style.boxShadow = 
+                window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.1)' : 'none';
         });
 
-        // Counter animation for stats
+        // ── Counter Animation ────────────────────────────────
         const animateCounter = (element, target) => {
             let current = 0;
             const increment = target / 50;
@@ -1442,7 +1041,6 @@
             }, 30);
         };
 
-        // Trigger counter animation when stats section is visible
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1450,9 +1048,7 @@
                         const values = [25000, 75, 10, 95];
                         const suffixes = ['', '', '', '%'];
                         stat.dataset.suffix = suffixes[index];
-                        setTimeout(() => {
-                            animateCounter(stat, values[index]);
-                        }, index * 100);
+                        setTimeout(() => animateCounter(stat, values[index]), index * 100);
                     });
                     statsObserver.unobserve(entry.target);
                 }
@@ -1460,9 +1056,7 @@
         }, { threshold: 0.5 });
 
         const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+        if (statsSection) statsObserver.observe(statsSection);
     </script>
 </body>
 </html>
